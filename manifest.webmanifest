@@ -1,0 +1,12 @@
+{
+  "name": "نُوا AI — دستیار هوشمند",
+  "short_name": "نُوا AI",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0c1022",
+  "theme_color": "#10142b",
+  "description": "دستیار هوشمند فارسی"
+}

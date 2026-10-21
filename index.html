@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10142b">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<title>نُوا | دستیار هوش مصنوعی</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#0c1022;--panel:#151a32;--panel2:#1b2240;--text:#f6f7ff;--muted:#aab2d4;--line:#2d3558;--cyan:#4de2e7;--pink:#ff66b3;--purple:#a78bfa;--green:#65e6a6;--yellow:#ffd166;--red:#ff758f}
+*{box-sizing:border-box}body{margin:0;font-family:Vazirmatn,system-ui,sans-serif;background:radial-gradient(ellipse at 10% 0%,#25205a 0,transparent 35%),radial-gradient(ellipse at 95% 20%,#123e52 0,transparent 30%),var(--bg);color:var(--text);min-height:100vh}
+button,input,textarea{font:inherit}button{cursor:pointer;border:0;transition:.2s transform,.2s filter}button:hover{filter:brightness(1.1);transform:translateY(-1px)}button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.wrap{max-width:1200px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:17px;background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));display:grid;place-items:center;font-size:25px;box-shadow:0 8px 30px #a78bfa33}.brand h1{font-size:20px;margin:0}.brand small{color:var(--muted)}.top-actions{display:flex;gap:9px;flex-wrap:wrap}.pill{border:1px solid var(--line);background:#161b34;color:var(--text);padding:10px 14px;border-radius:14px}.primary{background:linear-gradient(110deg,#7565f5,#b05df4);color:white;padding:11px 16px;border-radius:14px;font-weight:800}.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;margin-bottom:18px}.hero-main,.hero-side,.panel{border:1px solid #ffffff12;background:linear-gradient(145deg,#191f3beF,#12172deF);border-radius:26px;padding:24px;box-shadow:0 20px 70px #0002}.eyebrow{color:var(--cyan);font-size:13px;font-weight:800;letter-spacing:.3px}.hero h2{font-size:clamp(28px,4vw,44px);line-height:1.35;margin:12px 0}.gradient-text{background:linear-gradient(90deg,var(--cyan),#c5a8ff,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{color:var(--muted);line-height:1.9;margin-bottom:20px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);border-radius:99px;padding:7px 11px;color:#dce3ff;background:#ffffff05;font-size:12px}.orb{height:100%;min-height:220px;display:grid;place-items:center;position:relative;overflow:hidden}.orb:before,.orb:after{content:"";position:absolute;border-radius:50%;filter:blur(1px)}.orb:before{width:180px;height:180px;background:linear-gradient(135deg,#4de2e766,#a78bfa99,#ff66b366);box-shadow:0 0 90px #8c78ff44}.orb:after{width:115px;height:115px;border:1px solid #ffffff55;box-shadow:0 0 35px #4de2e755}.orb-icon{z-index:1;font-size:60px;text-shadow:0 0 30px #4de2e7}.float{position:absolute;border:1px solid #ffffff1f;background:#1d2445cc;padding:11px 14px;border-radius:16px;font-size:13px}.float.a{top:16px;right:8px}.float.b{bottom:18px;left:5px}.layout{display:grid;grid-template-columns:260px 1fr;gap:18px}.sidebar{display:flex;flex-direction:column;gap:12px}.stat{display:flex;align-items:center;gap:12px;padding:15px;background:#ffffff05;border:1px solid var(--line);border-radius:18px}.ico{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;font-size:21px;flex-shrink:0}.cyan{background:#4de2e71c;color:var(--cyan)}.pink{background:#ff66b31c;color:var(--pink)}.purple{background:#a78bfa1c;color:var(--purple)}.green{background:#65e6a61c;color:var(--green)}.yellow{background:#ffd1661c;color:var(--yellow)}.stat b{display:block;font-size:14px}.stat small{color:var(--muted);font-size:12px}.section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.section-title h3{margin:0;font-size:18px}.tabs{display:flex;gap:8px;background:#0d1228;padding:5px;border-radius:15px}.tab{padding:9px 13px;background:transparent;color:var(--muted);border-radius:11px}.tab.active{background:#33305c;color:#fff}.chatbox{min-height:310px;max-height:450px;overflow:auto;border:1px solid var(--line);background:#0d1228a8;border-radius:19px;padding:16px;margin-bottom:12px}.welcome{text-align:center;padding:40px 12px;color:var(--muted)}.welcome .big{font-size:42px}.message{max-width:88%;padding:12px 15px;border-radius:17px;margin:10px 0;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}.message.user{margin-right:auto;background:#34305c;border:1px solid #8b7cff44}.message.ai{margin-left:auto;background:#172d39;border:1px solid #4de2e733}.composer{display:flex;gap:9px;align-items:end}.composer textarea{flex:1;resize:vertical;min-height:54px;max-height:140px;background:#0d1228;border:1px solid var(--line);border-radius:16px;color:white;padding:14px;outline:none}.composer textarea:focus,input:focus{border-color:var(--cyan)}.send{background:linear-gradient(135deg,#00bfc9,#5869f5);color:white;border-radius:15px;padding:14px 18px;font-weight:800}.muted{color:var(--muted);font-size:12px;line-height:1.8}.bottom-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.plan{border:1px solid var(--line);background:#ffffff04;border-radius:19px;padding:17px}.plan.featured{border-color:#a78bfa99;background:linear-gradient(145deg,#a78bfa14,#ff66b30a)}.price{font-size:26px;font-weight:900;margin:8px 0}.price small{font-size:12px;color:var(--muted);font-weight:500}.plan ul{padding-right:18px;color:var(--muted);font-size:13px;line-height:2}.plan button{width:100%;padding:11px;border-radius:13px;background:#242b4d;color:white}.plan.featured button{background:linear-gradient(90deg,#7667f7,#d15aa8)}.auth-card{max-width:500px;margin:35px auto;border:1px solid var(--line);background:#151a32;border-radius:25px;padding:24px}.field{display:flex;flex-direction:column;gap:7px;margin:12px 0}.field label{font-size:13px;color:var(--muted)}.field input{background:#0d1228;border:1px solid var(--line);border-radius:13px;padding:12px;color:white;outline:none}.btn-google{width:100%;padding:12px;border-radius:13px;background:#f6f7ff;color:#20243a;font-weight:800;margin:7px 0}.btn-phone{width:100%;padding:12px;border-radius:13px;background:#1e7959;color:white;font-weight:800;margin:7px 0}.danger{color:var(--red)}.notice{border:1px solid #ffd16644;background:#ffd1660d;border-radius:14px;padding:12px;color:#f5d991;font-size:12px;line-height:1.8}.hidden{display:none!important}.modal-bg{position:fixed;inset:0;background:#050714cc;display:grid;place-items:center;padding:18px;z-index:10}.modal{width:min(460px,100%);background:#171d38;border:1px solid var(--line);border-radius:22px;padding:22px;max-height:90vh;overflow:auto}.toast{position:fixed;bottom:20px;left:20px;z-index:20;background:#222a49;border:1px solid var(--line);border-radius:14px;padding:13px 17px;max-width:min(420px,90vw);box-shadow:0 15px 45px #0005}.footer{text-align:center;color:#707a9e;font-size:12px;padding:24px 0 8px}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hero-side{min-height:190px}.layout{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr}.bottom-grid{grid-template-columns:1fr}.wrap{padding:13px}.hero-main,.hero-side,.panel{padding:18px}.top{align-items:flex-start}.brand small{display:block}.top-actions .pill{display:none}}
+@media(max-width:440px){.sidebar{grid-template-columns:1fr}.top-actions{gap:5px}.top-actions button{padding:9px}.composer{align-items:stretch}.send{padding:10px}.section-title{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+ <div class="brand"><div class="logo">✦</div><div><h1>نُوا <span class="gradient-text">AI</span></h1><small>یک فضای تازه برای فکرهای بزرگ</small></div></div>
+ <div class="top-actions"><button class="pill" id="adminOpen">🛡️ پنل مدیریت</button><button class="pill hidden" id="installBtn">📲 نصب برنامه</button><button class="pill" id="loginOpen">👤 ورود / ثبت‌نام</button><button class="primary hidden" id="logoutBtn">خروج</button></div>
+</header>
+
+<section class="hero">
+ <div class="hero-main">
+  <div class="eyebrow">✧ نسل تازهٔ دستیار هوشمند فارسی</div>
+  <h2>ایده‌هات رو به <span class="gradient-text">چیزهای شگفت‌انگیز</span> تبدیل کن.</h2>
+  <p>گفتگو کن، ایده‌پردازی کن و کارهات رو سریع‌تر پیش ببر؛ همه‌چیز در یک فضای ساده، رنگی و فارسی.</p>
+  <div class="chips"><span class="chip">🔐 ورود امن</span><span class="chip">💬 گفتگوی هوشمند</span><span class="chip">🎨 ابزارهای خلاق</span><span class="chip">⚡ تجربهٔ سریع</span></div>
+ </div>
+ <div class="hero-side orb"><span class="float a">✨ ایده‌پردازی بدون مرز</span><div class="orb-icon">✦</div><span class="float b">🧠 همراه خلاق تو</span></div>
+</section>
+
+<div id="authGate" class="auth-card hidden">
+ <div class="section-title"><h3>👋 خوش اومدی!</h3><button class="pill" id="closeAuth">بستن</button></div>
+ <p class="muted">برای گفتگو با گوگل، ایمیل تأییدشده یا شماره موبایل وارد شو. ساخت تصویر نیازمند ورود و تأیید حساب است. Firebase باید تنظیم شود.</p>
+ <button class="btn-google" id="googleBtn">🌈 ادامه با حساب Google</button>
+ <hr style="border:0;border-top:1px solid var(--line);margin:16px 0">
+ <div class="field"><label for="email">ایمیل</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+ <div class="field"><label for="emailPass">رمز عبور (حداقل ۶ نویسه)</label><input id="emailPass" type="password" autocomplete="current-password" placeholder="رمز عبور"></div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="primary" id="emailLoginBtn">ورود با ایمیل</button><button class="pill" id="emailSignupBtn">ثبت‌نام با ایمیل</button></div>
+ <button class="pill hidden" id="verifyEmailBtn" style="margin-top:8px">📧 ارسال دوبارهٔ ایمیل تأیید</button>
+ <div class="field"><label for="phone">شماره موبایل با کد کشور، مثل +98912…</label><input id="phone" autocomplete="tel" placeholder="+98912xxxxxxx"></div>
+ <div id="recaptcha-container"></div>
+ <button class="btn-phone" id="sendOtpBtn">📲 ارسال کد تأیید پیامکی</button>
+ <div id="otpArea" class="hidden"><div class="field"><label for="otp">کد پیامک‌شده</label><input id="otp" inputmode="numeric" autocomplete="one-time-code" placeholder="کد تأیید"></div><button class="primary" id="verifyOtpBtn">✅ تأیید و ورود</button></div>
+ <div class="notice" style="margin-top:14px">برای ارسال واقعی پیامک باید Firebase Authentication، ارائه‌دهندهٔ Phone و تنظیم reCAPTCHA پیکربندی شود.</div>
+</div>
+
+<main id="appMain">
+ <div class="layout">
+  <aside class="sidebar">
+   <div class="stat"><div class="ico cyan">💬</div><div><b>گفتگوی هوشمند</b><small id="chatLeft">تا ۲ ساعت در روز برای کاربر رایگان</small></div></div>
+   <div class="stat"><div class="ico pink">🖼️</div><div><b>ساخت تصویر</b><small id="imageLeft">۵ تصویر در روز برای کاربر رایگان</small></div></div>
+   <div class="stat"><div class="ico purple">👑</div><div><b>اشتراک ویژه</b><small id="premiumStatus">امکانات بیشتر، بدون وقفه</small></div></div>
+   <div class="stat"><div class="ico green">🛡️</div><div><b>حریم خصوصی</b><small>کلیدها فقط سمت سرور</small></div></div>
+   <button class="primary" id="upgradeBtn">💎 دیدن پلن‌های اشتراک</button>
+  </aside>
+
+  <section class="panel">
+   <div class="section-title"><h3>فضای کار تو</h3><div class="tabs"><button class="tab active" data-mode="chat">💬 گفتگو</button><button class="tab" data-mode="image">🎨 تصویر</button></div></div>
+   <div class="chatbox" id="chatbox"><div class="welcome"><div class="big">✧</div><b>از چی شروع کنیم؟</b><p>سؤالت رو بنویس؛ با هم قدم بعدی رو پیدا می‌کنیم.</p></div></div>
+   <div style="display:flex;gap:8px;align-items:center;margin:0 0 8px"><label class="pill" for="imageUpload" style="cursor:pointer">📎 افزودن عکس</label><input id="imageUpload" type="file" accept="image/*" class="hidden"><span class="muted" id="fileLabel">می‌توانی در گفتگو درخواست ساخت یا ویرایش عکس بدهی.</span></div>
+   <div class="composer"><textarea id="prompt" placeholder="اینجا بنویس… (Enter برای ارسال، Shift+Enter برای خط جدید)"></textarea><button class="send" id="sendBtn">ارسال ↗</button></div>
+   <p class="muted" id="modeHint">پاسخ‌ها از طریق Worker و Claude API دریافت می‌شوند.</p>
+   <div id="imageNotice" class="notice hidden">تولید تصویر واقعی نیازمند اتصال یک سرویس تولید تصویر به مسیر امن سرور است. Claude Messages به‌تنهایی تصویر جدید تولید نمی‌کند.</div>
+  </section>
+ </div>
+
+ <div class="bottom-grid" id="plans">
+  <section class="panel"><div class="section-title"><h3>🎁 رایگان شروع کن</h3><span class="chip">روزانه</span></div><p class="muted">برای امتحان‌کردن برنامه</p><div class="price">۰ <small>تومان</small></div><ul><li>۵ تصویر در روز</li><li>گفتگوی متنی تا ۲ ساعت در روز (باید سمت سرور اعمال شود)</li><li>سهمیه هر روز دوباره شارژ می‌شود</li></ul><button class="pill" style="width:100%" id="freeInfo">نحوهٔ استفاده</button></section>
+  <section class="panel"><div class="section-title"><h3>🚀 اشتراک ویژه</h3><span class="chip">برای استفادهٔ بیشتر</span></div><div class="plan featured"><div class="price">۱۰۰٬۰۰۰ <small>تومان / یک ماه</small></div><ul><li>سهمیهٔ بیشتر طبق تنظیمات سرویس</li><li>تمدید از طریق درگاه پرداخت</li><li>فعال‌سازی پس از تأیید سمت سرور</li></ul><button id="buyMonth">💳 خرید اشتراک یک‌ماهه</button></div><p class="muted">قیمت و پلن‌ها باید با تنظیمات سرور و حساب پذیرنده هماهنگ باشند.</p></section>
+ </div>
+</main>
+<div class="footer">نُوا AI · طراحی نمایشی قابل اتصال به سرویس واقعی · از کلیدها و اطلاعات ورود محافظت کن</div>
+</div>
+
+<div class="modal-bg hidden" id="adminModal"><div class="modal">
+ <div class="section-title"><h3>🛡️ ورود مدیر</h3><button class="pill" id="closeAdmin">✕</button></div>
+ <p class="muted">ورود مدیر از سرور بررسی می‌شود. نام کاربری و رمز را فقط در Secretهای Cloudflare تنظیم کن.</p>
+ <div class="field"><label for="adminUser">نام کاربری مدیر</label><input id="adminUser" autocomplete="username"></div>
+ <div class="field"><label for="adminPass">رمز عبور مدیر</label><input id="adminPass" type="password" autocomplete="current-password"></div>
+ <button class="primary" id="adminLogin" style="width:100%">🔐 ورود امن</button>
+ <p class="muted">پنل مدیریت واقعی فقط وقتی فعال است که Worker مسیرهای مدیریتی و سیاست‌های دسترسی سمت سرور را پیاده‌سازی کرده باشد.</p>
+</div></div>
+<div id="toast" class="toast hidden" role="status"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, RecaptchaVerifier, signInWithPhoneNumber, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+/* Fill these with your Firebase web app configuration. This config is not a server secret. */
+const firebaseConfig = {
+  apiKey: "YOUR_FIREBASE_WEB_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  appId: "YOUR_FIREBASE_APP_ID"
+};
+/* Put the deployed Cloudflare Worker URL here. */
+const API_BASE = "https://YOUR-WORKER.workers.dev";
+let auth = null, recaptcha = null, confirmation = null, user = null, adminToken = sessionStorage.getItem("nova_admin_token") || "";
+let mode = "chat", me = null, selectedImage = null, deferredInstallPrompt = null;
+const $ = id => document.getElementById(id);
+const toast = msg => { $("toast").textContent = msg; $("toast").classList.remove("hidden"); setTimeout(()=> $("toast").classList.add("hidden"), 4200); };
+const configured = !firebaseConfig.apiKey.startsWith("YOUR_") && !API_BASE.includes("YOUR-WORKER");
+try {
+  if (configured) {
+    auth = getAuth(initializeApp(firebaseConfig));
+    onAuthStateChanged(auth, async u => { user = u; $("loginOpen").classList.toggle("hidden",!!u); $("logoutBtn").classList.toggle("hidden",!u); $("verifyEmailBtn").classList.toggle("hidden",!(u && u.email && !u.emailVerified)); if(u && u.email && !u.emailVerified){ toast("برای استفاده از خدمات، ابتدا ایمیل خود را از لینک ارسالی تأیید کن."); } await refreshMe(); });
+  } else {
+    toast("برای فعال‌شدن ورود واقعی، Firebase و نشانی Worker را در فایل تنظیم کن.");
+  }
+} catch(e) { toast("تنظیم Firebase کامل نیست."); }
+
+function headers() {
+  const h = {"content-type":"application/json"};
+  if (adminToken) h.authorization = "Admin " + adminToken;
+  else if (user) return user.getIdToken().then(t=>({...h,authorization:"Bearer "+t}));
+  return h;
+}
+async function api(path, body, method="POST") {
+  if (!configured) throw new Error("ابتدا Firebase و نشانی Worker را تنظیم کن.");
+  const h = await headers();
+  const res = await fetch(API_BASE+path,{method,headers:h,...(method==="POST"?{body:JSON.stringify(body||{})}:{})});
+  const data = await res.json().catch(()=>({}));
+  if (!res.ok) throw new Error(data?.error?.message || data?.error || `خطا (${res.status})`);
+  return data;
+}
+async function refreshMe() {
+  if (!configured || (!user && !adminToken)) { $("chatLeft").textContent="برای دیدن سهمیه وارد شو"; $("imageLeft").textContent="۵ تصویر در روز برای کاربر رایگان"; return; }
+  try {
+    me = await api("/me",null,"GET");
+    $("chatLeft").textContent = me.admin ? "مدیر: نامحدود" : me.left?.chat == null ? "اشتراک فعال" : `${me.left.chat} پیام باقی‌مانده`;
+    $("imageLeft").textContent = me.admin ? "مدیر: نامحدود" : me.left?.images == null ? "اشتراک فعال" : `${me.left.images} تصویر باقی‌مانده`;
+    $("premiumStatus").textContent = me.admin ? "👑 دسترسی نامحدود مدیر" : me.premium ? "اشتراک فعال" : "کاربر رایگان";
+  } catch(e) { toast("وضعیت حساب دریافت نشد: "+e.message); }
+}
+$("loginOpen").onclick=()=> $("authGate").classList.remove("hidden");
+$("closeAuth").onclick=()=> $("authGate").classList.add("hidden");
+$("googleBtn").onclick=async()=>{try{if(!auth)throw new Error("ابتدا Firebase را تنظیم کن.");await signInWithPopup(auth,new GoogleAuthProvider());$("authGate").classList.add("hidden");toast("ورود گوگل موفق بود.");}catch(e){toast(friendlyAuthError(e))}};
+function friendlyAuthError(e){const code=e?.code||"";const messages={"auth/invalid-email":"فرمت ایمیل درست نیست.","auth/email-already-in-use":"این ایمیل قبلاً ثبت‌نام کرده است.","auth/weak-password":"رمز عبور باید دست‌کم ۶ نویسه باشد.","auth/invalid-credential":"ایمیل یا رمز عبور نادرست است.","auth/user-not-found":"حسابی با این ایمیل پیدا نشد.","auth/wrong-password":"رمز عبور نادرست است.","auth/too-many-requests":"تلاش‌های زیاد؛ کمی بعد دوباره امتحان کن.","auth/operation-not-allowed":"روش ورود در Firebase فعال نشده است.","auth/unauthorized-domain":"دامنهٔ سایت در Firebase مجاز نشده است.","auth/network-request-failed":"اتصال اینترنت را بررسی کن."};return messages[code]||e?.message||"ورود انجام نشد؛ تنظیمات Firebase را بررسی کن."}
+$("emailSignupBtn").onclick=async()=>{try{if(!auth)throw new Error("ابتدا Firebase را تنظیم کن.");const email=$("email").value.trim(),password=$("emailPass").value;if(!email||password.length<6)throw new Error("ایمیل معتبر و رمز حداقل ۶ نویسه وارد کن.");const cred=await createUserWithEmailAndPassword(auth,email,password);await sendEmailVerification(cred.user);$("verifyEmailBtn").classList.remove("hidden");toast("حساب ساخته شد؛ لینک تأیید به ایمیلت فرستاده شد. پوشهٔ Spam را هم بررسی کن.");}catch(e){toast(friendlyAuthError(e))}};
+$("emailLoginBtn").onclick=async()=>{try{if(!auth)throw new Error("ابتدا Firebase را تنظیم کن.");const cred=await signInWithEmailAndPassword(auth,$("email").value.trim(),$("emailPass").value);if(!cred.user.emailVerified){await sendEmailVerification(cred.user);$("verifyEmailBtn").classList.remove("hidden");toast("ایمیل هنوز تأیید نشده؛ لینک تأیید تازه فرستاده شد.");return;}$("authGate").classList.add("hidden");toast("ورود با ایمیل موفق بود.");}catch(e){toast(friendlyAuthError(e))}};
+$("verifyEmailBtn").onclick=async()=>{try{if(!auth?.currentUser)throw new Error("ابتدا وارد حساب ایمیل شو.");await sendEmailVerification(auth.currentUser);toast("ایمیل تأیید دوباره ارسال شد.");}catch(e){toast(friendlyAuthError(e))}};
+$("sendOtpBtn").onclick=async()=>{try{if(!auth)throw new Error("ابتدا Firebase را تنظیم کن.");const phone=$("phone").value.trim();if(!phone.startsWith("+"))throw new Error("شماره را با کد کشور وارد کن؛ مثل +98912…");if(!recaptcha)recaptcha=new RecaptchaVerifier(auth,"recaptcha-container",{size:"normal"});confirmation=await signInWithPhoneNumber(auth,phone,recaptcha);$("otpArea").classList.remove("hidden");toast("کد تأیید ارسال شد.");}catch(e){toast("ارسال کد انجام نشد: "+e.message);}};
+$("verifyOtpBtn").onclick=async()=>{try{if(!confirmation)throw new Error("اول کد را درخواست کن.");await confirmation.confirm($("otp").value.trim());$("authGate").classList.add("hidden");toast("شماره تأیید شد.");}catch(e){toast("کد تأیید درست نیست یا منقضی شده.");}};
+$("logoutBtn").onclick=async()=>{adminToken="";sessionStorage.removeItem("nova_admin_token");if(auth&&user)await signOut(auth);user=null;me=null;refreshMe();toast("از حساب خارج شدی.");};
+$("adminOpen").onclick=()=> $("adminModal").classList.remove("hidden");
+$("closeAdmin").onclick=()=> $("adminModal").classList.add("hidden");
+$("adminLogin").onclick=async()=>{try{if(!configured)throw new Error("ابتدا Worker را تنظیم کن.");const res=await fetch(API_BASE+"/login",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({u:$("adminUser").value,p:$("adminPass").value})});const d=await res.json();if(!res.ok)throw new Error(d.error||"ورود مدیر ناموفق بود");adminToken=d.token;sessionStorage.setItem("nova_admin_token",adminToken);$("adminModal").classList.add("hidden");await refreshMe();if(!me?.admin)throw new Error("سرور این حساب را مدیر نشناخت.");toast("ورود مدیر تأیید شد.");}catch(e){adminToken="";sessionStorage.removeItem("nova_admin_token");toast(e.message);}};
+document.querySelectorAll("[data-mode]").forEach(b=>b.onclick=()=>{mode=b.dataset.mode;document.querySelectorAll("[data-mode]").forEach(x=>x.classList.toggle("active",x===b));$("imageNotice").classList.toggle("hidden",mode!=="image");$("prompt").placeholder=mode==="image"?"توصیف تصویری که می‌خواهی بسازی…":"اینجا بنویس…";$("modeHint").textContent=mode==="image"?"می‌توانی همین‌جا درخواست ساخت یا ویرایش تصویر بدهی؛ سرویس تصویر باید در Worker پیکربندی شود.":"پاسخ‌ها از طریق Worker و Claude API دریافت می‌شوند.";});
+function addMessage(text,who){const box=$("chatbox");const welcome=box.querySelector(".welcome");if(welcome)welcome.remove();const d=document.createElement("div");d.className="message "+who;d.textContent=text;box.appendChild(d);box.scrollTop=box.scrollHeight;return d;}
+async function send() {
+ const text=$("prompt").value.trim();if(!text)return;
+ if(!user&&!adminToken){$("authGate").classList.remove("hidden");toast("برای ادامه وارد حساب شو.");return;}
+ if(user && user.email && !user.emailVerified){$("authGate").classList.remove("hidden");toast("اول ایمیلت را از لینک تأیید کن، سپس دوباره وارد شو.");return;}
+ const imageIntent = /(?:عکس|تصویر|نقاشی|پوستر|لوگو|تصویرسازی|کارتونی کن|ویرایش عکس|بساز|طراحی کن)/i.test(text) &&
+   /(?:بساز|درست کن|ایجاد کن|تولید کن|طراحی کن|کارتونی کن|ویرایش کن|تبدیل کن|عکس|تصویر)/i.test(text);
+ if(mode==="image" || imageIntent) {
+   if(!user&&!adminToken){$("authGate").classList.remove("hidden");toast("برای ساخت تصویر ابتدا وارد حساب شو.");return;}
+   if(user && user.email && !user.emailVerified){$("authGate").classList.remove("hidden");toast("برای ساخت تصویر ابتدا ایمیلت را تأیید کن.");return;}
+   addMessage(text,"user");
+   if(selectedImage) addMessage("عکس پیوست شد: "+selectedImage.name,"user");
+   const waiting=addMessage("درخواست تصویری‌ات را بررسی می‌کنم…","ai");
+   $("prompt").value=""; $("sendBtn").disabled=true;
+   try {
+     const tokenHeaders = await headers();
+     const form = new FormData();
+     form.append("prompt", text);
+     if(selectedImage) form.append("image", selectedImage);
+     const res = await fetch(API_BASE + "/image", {method:"POST", headers: tokenHeaders.authorization ? {authorization:tokenHeaders.authorization} : {}, body:form});
+     const ct = res.headers.get("content-type") || "";
+     if(!res.ok) {
+       const err = ct.includes("application/json") ? await res.json() : {error: await res.text()};
+       throw new Error(err?.error?.message || err?.error || "سرویس تصویر هنوز تنظیم نشده است.");
+     }
+     if(ct.startsWith("image/")) {
+       const blob=await res.blob(); const img=document.createElement("img"); img.src=URL.createObjectURL(blob); img.alt="تصویر تولیدشده"; img.style="display:block;max-width:100%;border-radius:16px;margin-top:8px"; waiting.textContent="تصویر آماده شد:"; waiting.appendChild(img);
+     } else {
+       const result=await res.json();
+       if(result.image_url){waiting.textContent="تصویر آماده شد:";const img=document.createElement("img");img.src=result.image_url;img.alt="تصویر تولیدشده";img.style="display:block;max-width:100%;border-radius:16px;margin-top:8px";waiting.appendChild(img);}
+       else waiting.textContent=result.message || "درخواست تصویر به سرور رسید، اما پاسخ تصویر قابل نمایش نبود.";
+     }
+     selectedImage=null; $("imageUpload").value=""; $("fileLabel").textContent="می‌توانی در گفتگو درخواست ساخت یا ویرایش عکس بدهی."; await refreshMe();
+   } catch(e) { waiting.textContent="ساخت تصویر انجام نشد: "+e.message; }
+   finally { $("sendBtn").disabled=false; }
+   return;
+ }
+ $("prompt").value="";addMessage(text,"user");const waiting=addMessage("دارم فکر می‌کنم…","ai");$("sendBtn").disabled=true;
+ try {
+  const data=await api("/ai",{kind:"chat",body:{messages:[{role:"user",content:text}],max_tokens:1500}});
+  const answer=Array.isArray(data.content)?data.content.filter(x=>x.type==="text").map(x=>x.text).join("\n"):JSON.stringify(data);
+  waiting.textContent=answer||"پاسخی دریافت نشد.";await refreshMe();
+ } catch(e){waiting.textContent="نتونستم پاسخ بگیرم: "+e.message;}
+ finally{$("sendBtn").disabled=false;}
+}
+$("sendBtn").onclick=send;
+$("imageUpload").addEventListener("change",e=>{selectedImage=e.target.files?.[0]||null;$("fileLabel").textContent=selectedImage?selectedImage.name:"می‌توانی در گفتگو درخواست ساخت یا ویرایش عکس بدهی.";});
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredInstallPrompt=e;$("installBtn").classList.remove("hidden");});
+$("installBtn").onclick=async()=>{if(!deferredInstallPrompt){toast("از منوی مرورگر گزینهٔ Add to Home Screen را انتخاب کن.");return;}deferredInstallPrompt.prompt();await deferredInstallPrompt.userChoice;deferredInstallPrompt=null;$("installBtn").classList.add("hidden");};
+if("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("/sw.js").catch(()=>{});
+$("prompt").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();send();}});
+$("upgradeBtn").onclick=()=>$("plans").scrollIntoView({behavior:"smooth"});
+$("buyMonth").onclick=async()=>{try{if(!user)throw new Error("برای خرید اشتراک ابتدا با گوگل یا شماره تأییدشده وارد شو.");const r=await api("/pay",{plan:"m1"});if(!r.url)throw new Error("نشانی پرداخت از سرور دریافت نشد.");location.href=r.url;}catch(e){toast(e.message)}};
+$("freeInfo").onclick=()=>toast("سهمیه رایگان روزانه است؛ پس از پایان می‌توانی تا روز بعد صبر کنی یا اشتراک بخری.");
+</script>
+</body>
+</html>

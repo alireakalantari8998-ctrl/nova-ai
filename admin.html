@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10142b"><title>پنل مدیریت | نُوا AI</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&display=swap');
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top right,#29235b,transparent 45%),#0c1022;color:#f6f7ff;font-family:Vazirmatn,system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:24px}.panel{background:#171d38;border:1px solid #30395e;border-radius:22px;padding:22px;margin:16px 0}.row{display:flex;gap:12px;flex-wrap:wrap}.field{display:flex;flex-direction:column;gap:7px;flex:1;min-width:190px;margin:8px 0}.field input{padding:12px;border-radius:12px;border:1px solid #343d62;background:#0d1228;color:#fff;font:inherit}.btn{border:0;border-radius:12px;padding:12px 16px;background:linear-gradient(90deg,#7667f7,#d15aa8);color:white;font:inherit;font-weight:800;cursor:pointer}.secondary{background:#252d50}.muted{color:#aab2d4;font-size:13px;line-height:1.8}.hidden{display:none!important}.card{border:1px solid #30395e;border-radius:16px;padding:15px;margin:10px 0}.danger{color:#ff758f}.good{color:#65e6a6}a{color:#4de2e7}
+</style></head>
+<body><div class="wrap">
+<h1>🛡️ پنل مدیریت نُوا AI</h1><p class="muted">این صفحه جداست؛ مجوز مدیر باید همیشه توسط Worker تأیید شود. مخفی‌بودن URL به‌تنهایی امنیت نیست.</p>
+<section class="panel" id="loginPanel"><h2>ورود مدیر</h2><div class="row"><div class="field"><label>نام کاربری</label><input id="u" autocomplete="username" placeholder="Alireza13895"></div><div class="field"><label>رمز عبور</label><input id="p" type="password" autocomplete="current-password"></div></div><button class="btn" id="login">🔐 ورود امن</button><p class="muted">نام کاربری مدیر را در Cloudflare به‌صورت ADMIN_USERNAME تنظیم کن. رمز را در HTML قرار نده؛ برای امنیت، رمز قوی و یکتا در ADMIN_PASSWORD بگذار.</p></section>
+<section class="panel hidden" id="dash"><div class="row" style="align-items:center;justify-content:space-between"><h2>داشبورد مدیر</h2><button class="btn secondary" id="logout">خروج</button></div>
+<div class="card"><h3>👑 حساب مدیر</h3><p class="muted">در Worker، حسابی که با توکن مدیر وارد شده است باید از سهمیه معاف باشد. این صفحه خودش امتیاز یا دسترسی ایجاد نمی‌کند.</p><p class="good">توکن مدیر توسط سرور اعتبارسنجی شده است.</p></div>
+<div class="card"><h3>🎁 اعطای اشتراک به کاربر</h3><p class="muted">شناسهٔ کاربر Firebase را وارد کن. این عمل از مسیر امن /grant انجام می‌شود.</p><div class="row"><div class="field"><label>Firebase UID</label><input id="uid" placeholder="شناسهٔ کاربر"></div><div class="field"><label>مدت (روز)</label><input id="days" type="number" min="1" max="3650" value="30"></div></div><button class="btn" id="grant">اعطای اشتراک</button></div>
+<div class="card"><h3>🧰 تنظیمات و وضعیت</h3><p class="muted">برای فهرست کاربران، گزارش پرداخت و آمار مصرف، باید مسیرهای مدیریتی جداگانه با کنترل دسترسی و صفحه‌بندی در Worker اضافه شوند. این نسخه عمداً اطلاعات حساس کاربران را از KV فهرست نمی‌کند.</p></div>
+</section><p id="status" class="muted"></p><p><a href="/">← بازگشت به نُوا AI</a></p>
+</div>
+<script>
+const $=id=>document.getElementById(id);const API_BASE="https://YOUR-WORKER.workers.dev";let token=sessionStorage.getItem("nova_admin_token")||"";
+function status(s){$("status").textContent=s}
+async function call(path,body,method="POST"){const r=await fetch(API_BASE+path,{method,headers:{...(method==="POST"?{"content-type":"application/json"}:{}),authorization:"Admin "+token},...(method==="POST"?{body:JSON.stringify(body||{})}:{})});const d=await r.json().catch(()=>({}));if(!r.ok)throw new Error(d.error||"درخواست ناموفق بود");return d}
+async function validate(){if(!token)return;try{const m=await call("/me",null,"GET");if(!m.admin)throw Error("دسترسی مدیر تأیید نشد");$("loginPanel").classList.add("hidden");$("dash").classList.remove("hidden");}catch(e){token="";sessionStorage.removeItem("nova_admin_token");status(e.message)}}
+$("login").onclick=async()=>{try{const r=await fetch(API_BASE+"/login",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({u:$("u").value,p:$("p").value})});const d=await r.json();if(!r.ok)throw Error(d.error||"ورود ناموفق");token=d.token;sessionStorage.setItem("nova_admin_token",token);await validate();if(!$("dash").classList.contains("hidden"))status("ورود موفق بود.");}catch(e){status(e.message)}};
+$("logout").onclick=()=>{token="";sessionStorage.removeItem("nova_admin_token");$("dash").classList.add("hidden");$("loginPanel").classList.remove("hidden");status("خارج شدی.")};
+$("grant").onclick=async()=>{try{await call("/grant",{id:$("uid").value.trim(),days:Number($("days").value)||30});status("اشتراک اعطا شد.");}catch(e){status(e.message)}};
+validate();
+</script></body></html>
